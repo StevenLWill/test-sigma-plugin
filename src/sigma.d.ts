@@ -3,13 +3,17 @@ declare module '@sigmacomputing/plugin' {
 
   export type WorkbookVariable = string
 
+  interface VariableConfig {
+    name: string
+    type: string
+    defaultValue?: string
+    description?: string
+    section?: string
+  }
+
   export const client: {
     config: {
-      configureEditorPanel: (config: Array<{
-        name: string
-        type: string
-        defaultValue?: string
-      }>) => void
+      configureEditorPanel: (config: VariableConfig[]) => void
     }
   }
 
