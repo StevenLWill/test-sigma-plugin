@@ -1,8 +1,13 @@
-import React, { useEffect } from 'react'
-import { client, SigmaClientProvider, useVariable } from '@sigmacomputing/plugin'
+import React, { useEffect } from 'react';
+import { client, useVariable } from '@sigmacomputing/plugin';
+
+// Configure the variable
+client.config.configureEditorPanel([
+  { name: 'test-variable', type: 'variable' }
+]);
 
 function TestComponent() {
-  const [value] = useVariable('test-variable')
+  const [value] = useVariable('test-variable');
   
   // Debug the value
   useEffect(() => {
@@ -24,8 +29,8 @@ function TestComponent() {
 
 export default function App() {
   return (
-    <SigmaClientProvider client={client}>
+    <>
       <TestComponent />
-    </SigmaClientProvider>
+    </>
   )
 }
