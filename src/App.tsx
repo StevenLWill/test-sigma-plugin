@@ -7,7 +7,7 @@ client.config.configureEditorPanel([
 ]);
 
 function TestComponent() {
-  const [value] = useVariable('test-variable');
+  const [value, setValue] = useVariable('test-variable');
   
   // Debug the value
   useEffect(() => {
@@ -18,7 +18,15 @@ function TestComponent() {
     <div style={{ padding: '20px' }}>
       <h3>Test Sigma Plugin</h3>
       <div>
-        Variable value: {value || 'none'}
+        Current value: {value || 'none'}
+      </div>
+      <div>
+        <input 
+          type="text" 
+          value={value || ''} 
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Type to update variable"
+        />
       </div>
       <div style={{ color: '#666', fontSize: '12px', marginTop: '10px' }}>
         Debug info: type={typeof value}, value={JSON.stringify(value)}
