@@ -1,0 +1,15 @@
+{
+  "name": "Test Variable Plugin",
+  "description": "A simple plugin to test variable functionality",
+  "version": "1.0.0",
+  "url": "http://localhost:5173",
+  "icon": "http://localhost:5173/icon.png",
+  "supportedModes": ["sidebar"],
+  "config": {
+    "variables": [{
+      "name": "test-variable",
+      "type": "variable",
+      "defaultValue": ""
+    }]
+  }
+} 
