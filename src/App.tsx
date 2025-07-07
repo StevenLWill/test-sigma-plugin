@@ -1,14 +1,6 @@
 import React, { useEffect } from 'react'
 import { client, SigmaClientProvider, useVariable } from '@sigmacomputing/plugin'
 
-// Configure the variable
-client.config.configureEditorPanel([
-  {
-    name: 'test-variable',
-    type: 'variable'
-  }
-])
-
 function TestComponent() {
   const [value] = useVariable('test-variable')
   
