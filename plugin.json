@@ -8,10 +8,5 @@
   "config": {
     "width": 300,
     "height": "100%"
-  },
-  "variables": [{
-    "name": "test-variable",
-    "type": "variable",
-    "defaultValue": ""
-  }]
+  }
 } 

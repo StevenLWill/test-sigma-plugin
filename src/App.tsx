@@ -1,7 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { client, SigmaClientProvider, useVariable } from '@sigmacomputing/plugin'
 
-// The variable is declared in plugin.json
+// Configure the variable
+client.config.configureEditorPanel([
+  {
+    name: 'test-variable',
+    type: 'variable'
+  }
+])
+
 function TestComponent() {
   const [inputValue, setInputValue] = useState('')
   const [value, setValue] = useVariable('test-variable')
