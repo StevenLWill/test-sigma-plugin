@@ -7,6 +7,18 @@ export default defineConfig({
   base: './', // Use relative paths for deployment
   build: {
     outDir: 'dist',
-    sourcemap: false
+    sourcemap: false,
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true
+    },
+    rollupOptions: {
+      external: ['@sigmacomputing/plugin'],
+      output: {
+        globals: {
+          '@sigmacomputing/plugin': 'SigmaPlugin'
+        }
+      }
+    }
   }
 })
