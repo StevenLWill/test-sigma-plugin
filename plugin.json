@@ -6,10 +6,12 @@
   "icon": "http://localhost:5173/icon.png",
   "supportedModes": ["sidebar"],
   "config": {
-    "variables": [{
-      "name": "test-variable",
-      "type": "variable",
-      "defaultValue": ""
-    }]
-  }
+    "width": 300,
+    "height": "100%"
+  },
+  "variables": [{
+    "name": "test-variable",
+    "type": "variable",
+    "defaultValue": ""
+  }]
 } 
