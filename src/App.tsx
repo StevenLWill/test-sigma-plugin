@@ -1,14 +1,13 @@
 import React from 'react'
 import { client, SigmaClientProvider, useVariable } from '@sigmacomputing/plugin'
 
-// Declare our variable in Sigma
-client.config.configureEditorPanel([{
-  name: 'test-variable',
-  type: 'text',
-  defaultValue: '',
-  description: 'A test variable for our plugin',
-  section: 'Test Plugin'
-}])
+// Configure the editor panel with a simple variable
+client.config.configureEditorPanel([
+  {
+    name: 'test-variable',
+    type: 'variable'
+  }
+])
 
 function TestComponent() {
   const [value, setValue] = useVariable('test-variable')

@@ -1,14 +1,11 @@
 declare module '@sigmacomputing/plugin' {
   import React, { ReactNode } from 'react'
 
-  export type WorkbookVariable = string
+  export type WorkbookVariable = string | undefined
 
   interface VariableConfig {
     name: string
-    type: string
-    defaultValue?: string
-    description?: string
-    section?: string
+    type: 'variable' | 'element' | 'column'
   }
 
   export const client: {
@@ -19,5 +16,5 @@ declare module '@sigmacomputing/plugin' {
 
   export function SigmaClientProvider(props: { client: any; children: ReactNode }): React.ReactElement
   
-  export function useVariable(name: string): [string, (value: string) => void]
+  export function useVariable(name: string): [WorkbookVariable, (...values: unknown[]) => void]
 } 
