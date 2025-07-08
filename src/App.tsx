@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { client, useVariable } from '@sigmacomputing/plugin';
+import { client, SigmaClientProvider, useVariable } from '@sigmacomputing/plugin';
 
 // Configure the variable
 client.config.configureEditorPanel([
@@ -18,7 +18,7 @@ function TestComponent() {
     <div style={{ padding: '20px' }}>
       <h3>Test Sigma Plugin</h3>
       <div>
-        Current value: {value || 'none'}
+        Current value: {value === undefined ? 'none' : value}
       </div>
       <div>
         <input 
@@ -37,8 +37,8 @@ function TestComponent() {
 
 export default function App() {
   return (
-    <>
+    <SigmaClientProvider client={client}>
       <TestComponent />
-    </>
+    </SigmaClientProvider>
   )
 }
