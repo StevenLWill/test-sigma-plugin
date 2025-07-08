@@ -11,20 +11,29 @@ function TestComponent() {
   
   // Debug the value
   useEffect(() => {
-    console.log('Variable value:', value)
+    console.log('Variable value changed:', value)
+    console.log('Variable type:', typeof value)
   }, [value])
+
+  const updateValue = (newValue: string) => {
+    console.log('Setting value to:', newValue);
+    setValue(newValue);
+  };
+
+  // Convert value to string for display, handling undefined and null
+  const displayValue = value === undefined || value === null ? '' : String(value);
 
   return (
     <div style={{ padding: '20px' }}>
       <h3>Test Sigma Plugin</h3>
       <div>
-        Current value: {value === undefined ? 'none' : value}
+        Current value: {displayValue || 'none'}
       </div>
       <div>
         <input 
           type="text" 
-          value={value || ''} 
-          onChange={(e) => setValue(e.target.value)}
+          value={displayValue}
+          onChange={(e) => updateValue(e.target.value)}
           placeholder="Type to update variable"
         />
       </div>
